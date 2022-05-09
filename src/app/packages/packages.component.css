@@ -1,0 +1,56 @@
+* {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  section {
+      margin-top: 60px;
+      display: block;
+  }
+  
+  .cards{
+      display: block;
+      z-index: 1;
+  }
+
+.card {
+  background: rgb(71, 68, 68);
+  display: inline-block;
+  margin: 25px 8px 0;
+  max-width: 300px;
+  perspective: 1000;
+  text-align: left;
+  transition: all 0.3s 0s ease-in;
+  width: 300px;
+  z-index: 1;
+    color: white;
+  }
+
+  .price {
+      display: inline-block;
+      font-size: large;
+
+  }
+
+  mat-card-actions {
+      text-align: center;
+      margin-left: 8px;
+  }
+
+  mat-card-title {
+      font-size: 1.8rem;
+  }
+
+  .package-contents {
+      text-align: left;
+      padding: 1rem 0 0 3rem;
+  }
+
+.description {
+    margin: 30px;
+}
+.description p {
+    text-align: left;
+    font-size: 1.2rem;
+}
+
