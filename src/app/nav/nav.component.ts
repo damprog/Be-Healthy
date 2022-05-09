@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit(): void {
+   
   }
+
+  onClick(): void {
+  }
+
 
 }

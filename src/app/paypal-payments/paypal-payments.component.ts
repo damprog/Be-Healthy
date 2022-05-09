@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
+
+declare var paypal: any;
 
   @Component({
     selector: 'app-paypal-payments',
@@ -7,72 +9,45 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./paypal-payments.component.css']
   })
   export class PaypalPaymentsComponent implements OnInit {
+    @ViewChild('paypal', {static: true}) paypalElement: ElementRef;
 
-    public payPalConfig?: IPayPalConfig;
-
-    ngOnInit(): void {
-      this.initConfig();
-      
+    product = {
+      price: 17.99,
+      description: 'Pakiet podstawowy oferuje spersonalizowany plan treningowy',
+      img: '../../assets/img/main-bg.jpg'
     }
 
-    private initConfig(): void {
-      this.payPalConfig = {
-      currency: 'EUR',
-      clientId: 'AVzwpYaycxUt0Q7LI1TG3MHybRXEMGP1kexS-bRMoZkonTJGJ7GVhgdCFkNJF8Oqyh3lIaRBrESkUylD',
-      createOrderOnClient: (data) => <ICreateOrderRequest>{
-        intent: 'CAPTURE',
-        purchase_units: [
-          {
-            amount: {
-              currency_code: 'EUR',
-              value: '9.99',
-              breakdown: {
-                item_total: {
-                  currency_code: 'EUR',
-                  value: '9.99'
+    paidFor = false;
+
+    constructor(){}
+
+    ngOnInit() {
+      paypal
+      .Buttons({
+        createOrder: (data, actions) => {
+          return actions.order.create({
+            purchase_units: [{
+                description: this.product.description,
+                amount: {
+                  currency_code: 'USD',
+                  value: this.product.price
                 }
               }
-            },
-            items: [
-              {
-                name: 'Enterprise Subscription',
-                quantity: '1',
-                category: 'DIGITAL_GOODS',
-                unit_amount: {
-                  currency_code: 'EUR',
-                  value: '9.99',
-                },
-              }
             ]
-          }
-        ]
-      },
-      advanced: {
-        commit: 'true'
-      },
-      style: {
-        label: 'paypal',
-        layout: 'vertical'
-      },
-      onApprove: (data, actions) => {
-        console.log('onApprove - transaction was approved, but not authorized', data, actions);
-        actions.order.get().then(details => {
-          console.log('onApprove - you can get full order details inside onApprove: ', details);
-        });
-      },
-      onClientAuthorization: (data) => {
-        console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-        //this.showSuccess = true;
-      },
-      onCancel: (data, actions) => {
-        console.log('OnCancel', data, actions);
-      },
-      onError: err => {
-        console.log('OnError', err);
-      },
-      onClick: (data, actions) => {
-        console.log('onClick', data, actions);
-      },
-    };
+          });
+        },
+        onApprove: async (data, actions) => {
+          const order = await actions.order.capture();
+          this.paidFor = true;
+          console.log(order);
+        },
+        onError: err => {
+          console.log(err);
+        }
+      })
+      .render(this.paypalElement.nativeElement)
     }
+
   }
+
+    

@@ -6,11 +6,11 @@ h1 {
     background-color: #f7f6f6;
   }
  
-  app-nav {
+  /* app-nav {
     z-index: 10;
     position: fixed;
     margin: 0;
-  }
+  } */
   .section-1 {
     margin-top: 80px;
 }

@@ -1,11 +1,48 @@
+<section class="package-desc">
+<div *ngIf="!paidFor">
+  <h1 class="product-header">Pakiet podstawowy - ${{ product.price }}</h1>
 
-    <div id="smart-button-container">
+  <p class="product-desc">{{ product.description }}</p>
+
+  <img class="product-img" width="400" [src]="product.img">
+
+</div>
+
+
+<div *ngIf="paidFor">
+<h1>Yay, you bought a sweet couch!</h1>
+
+</div>
+
+
+
+<div #paypal></div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div id="smart-button-container">
         <div style="text-align: center;">
           <div id="paypal-button-container"></div>
         </div>
       </div>
-    <script src="https://www.paypal.com/sdk/js?client-id=AVzwpYaycxUt0Q7LI1TG3MHybRXEMGP1kexS-bRMoZkonTJGJ7GVhgdCFkNJF8Oqyh3lIaRBrESkUylD&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
-    <script>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb-p7whf16259456@business.example.com&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+    <script type="text/javascript">
       function initPayPalButton() {
         paypal.Buttons({
           style: {
@@ -18,7 +55,7 @@
   
           createOrder: function(data, actions) {
             return actions.order.create({
-              purchase_units: [{"description":"Pakiet podstawowy","amount":{"currency_code":"USD","value":17.99}}]
+              purchase_units: [{"description":"Pakiet podstawowy","amount":{"currency_code":"EUR","value":17.99}}]
             });
           },
   
@@ -52,7 +89,7 @@
       <div id="paypal-button-container"></div>
     </div>
   </div>
-<script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=sb-p7whf16259456@business.example.com&enable-funding=venmo&currency=EUR" data-sdk-integration-source="button-factory"></script>
 <script>
   function initPayPalButton() {
     paypal.Buttons({
@@ -66,7 +103,7 @@
 
       createOrder: function(data, actions) {
         return actions.order.create({
-          purchase_units: [{"description":"Pakiet podstawowy","amount":{"currency_code":"USD","value":17.99}}]
+          purchase_units: [{"description":"Pakiet podstawowy","amount":{"currency_code":"EUR","value":17.99}}]
         });
       },
 
@@ -92,4 +129,4 @@
     }).render('#paypal-button-container');
   }
   initPayPalButton();
-</script>
+</script> -->

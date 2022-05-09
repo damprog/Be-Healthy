@@ -1,3 +1,16 @@
-section {
-    margin-top:100px ;
+.package-desc {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.product-img {
+    margin-bottom: 30px;
+}
+
+.product-desc {
+    font-size: 1rem;
+}
+
+.product-header {
+    font-weight: bold;
 }

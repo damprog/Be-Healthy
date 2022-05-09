@@ -19,6 +19,7 @@ h2, h3 {
   body, input[type="text"], button {
       color: #333;
       font-family: Cambria, Georgia, serif;
+      opacity: 0.9;
   }
 
   button {
@@ -51,3 +52,14 @@ h2, h3 {
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+/* Obcina wszystko to co wystaje poza body w horyzontalu */
+@media screen and (max-width:768px){
+
+  body{
+     overflow-x: hidden;
+   }
+  }
