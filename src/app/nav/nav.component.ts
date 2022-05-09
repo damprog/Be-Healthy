@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { observable } from 'rxjs';
 
+declare var navSlide: any;
+
 
 @Component({
   selector: 'app-nav',
@@ -14,7 +16,7 @@ export class NavComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-   
+   navSlide();
   }
 
   onClick(): void {
