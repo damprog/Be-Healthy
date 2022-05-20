@@ -52,6 +52,10 @@
 .description p {
     text-align: left;
     font-size: 1.2rem;
+    margin:0 5%;
+    padding: 1% 1%;
+    border:rgb(71, 68, 68) solid 4px;
+    border-radius: 5%;
 }
 
 

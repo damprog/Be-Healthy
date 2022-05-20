@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-recipes',
@@ -8,11 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class RecipesComponent implements OnInit {
 
   xs: number[] = [
-    1,2,3,4
+    1
   ];
-  constructor() { }
+  constructor(private service:SharedService) { }
+
+  RecipeList:any=[];
 
   ngOnInit(): void {
+    this.refreshRecipeList();
+  }
+
+  refreshRecipeList(){
+    this.service.getRecipeList().subscribe(data=>{
+      this.RecipeList=data
+    });
   }
 
 }

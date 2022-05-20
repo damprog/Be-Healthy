@@ -11,7 +11,7 @@ nav{
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-color: gray;
+  background-color: rgb(78, 77, 77);
 }
 
 .logo{

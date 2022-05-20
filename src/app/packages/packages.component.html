@@ -1,6 +1,8 @@
 <section>
 <div class="cards">
-  <mat-card class="card">
+
+
+  <!-- <mat-card class="card">
     <mat-card-subtitle>Pakiet</mat-card-subtitle>
     <mat-card-title>Podstawowy</mat-card-title>
     <mat-card-content>
@@ -46,7 +48,38 @@
       <button mat-button routerLink="/package">BUY</button>
       <p class="price">29,99$</p>
     </mat-card-actions>
+  </mat-card> -->
+
+
+<!-- Z bazy -->
+  <mat-card class="card" *ngFor="let dataItem of PackageList">
+    <mat-card-subtitle>Pakiet</mat-card-subtitle>
+    <mat-card-title>{{dataItem.PackageName}}</mat-card-title>
+    <mat-card-content>
+        <p class="package-contents" *ngIf="dataItem.PackageName==='Podstawowy'">
+
+            + Plan treningowy <br />
+            - Dieta<br />
+            - Konsultacje</p>
+        <p class="package-contents" *ngIf="dataItem.PackageName==='Rozszerzony'">
+
+            + Plan treningowy <br />
+            + Dieta<br />
+            - Konsultacje</p>
+        <p class="package-contents" *ngIf="dataItem.PackageName==='Rozszerzony+'">
+
+            + Plan treningowy <br />
+            + Dieta<br />
+            + Konsultacje</p>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+      <button mat-button routerLink="/package" (click)="sendPackage(dataItem)">Sprawdź</button>
+      <p class="price">{{dataItem.Price}}$</p>
+    </mat-card-actions>
   </mat-card>
+
+
 </div>
 </section>
 
@@ -62,6 +95,8 @@
     wraz z objaśnieniem wszystkich aspektów. Konsultacje obemują również stałe wsparcie 
     na każdym etapie planu treningowego. Oferta obejmuje 1 miesiąc konsultacji z trenerem personalnym 
 </p>
+
+
 </section>
 
 

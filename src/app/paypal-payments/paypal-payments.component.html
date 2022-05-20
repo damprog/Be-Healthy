@@ -1,19 +1,45 @@
 <section class="package-desc">
 <div *ngIf="!paidFor">
-  <h1 class="product-header">Pakiet podstawowy - ${{ product.price }}</h1>
+  <div class="container">
+  <h1 class="product-header">Pakiet {{product.packageName}} - ${{ product.price }}</h1>
 
-  <p class="product-desc">{{ product.description }}</p>
+  <div class="card" style="margin: 0 auto; width: 18rem; margin-bottom: 40px; margin-top:40px;">
+    <div class="card-header">
+      <b>Zawartość pakietu</b>
+    </div>
 
-  <img class="product-img" width="400" [src]="product.img">
+    <ul class="list-group list-group-flush"  *ngIf="product.packageName==='Podstawowy'">
+      <li class="list-group-item">+ Plan treningowy</li>
+      <li class="list-group-item">- Dieta</li>
+      <li class="list-group-item">- Konsultacje</li>
+    </ul>
+
+    <ul class="list-group list-group-flush"  *ngIf="product.packageName==='Rozszerzony'">
+      <li class="list-group-item">+ Plan treningowy</li>
+      <li class="list-group-item">+ Dieta</li>
+      <li class="list-group-item">- Konsultacje</li>
+    </ul>
+
+    <ul class="list-group list-group-flush"  *ngIf="product.packageName==='Rozszerzony+'">
+      <li class="list-group-item">+ Plan treningowy</li>
+      <li class="list-group-item">+ Dieta</li>
+      <li class="list-group-item">+ Konsultacje</li>
+    </ul>
+
+  </div>
+
+  <p class="product-desc">{{product.description}}</p>
+  </div>
+  <!-- <img class="product-img" width="400" [src]="product.img"> -->
 
 </div>
 
 
 <div *ngIf="paidFor">
-<h1>Yay, you bought a sweet couch!</h1>
+<h1 class="assume">Gratulacje, kupiłeś pakiet "{{product.packageName}}"</h1>
+<h1 class="assume">Powodzenia i Be Healty!!!</h1>
 
 </div>
-
 
 
 <div #paypal></div>

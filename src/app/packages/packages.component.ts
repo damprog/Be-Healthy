@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SharedService } from '../shared.service';
 
 
 
@@ -9,12 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PackagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:SharedService) { }
+
+  PackageList:any=[];
+
+  // currentPackageToSend:any;
+  // @Output() packageToSend = new EventEmitter<any>();
+
+  // @Input() package:any;
 
   ngOnInit(): void {
-    
+    this.refreshPackageList();
   }
 
+  refreshPackageList(){
+    this.service.getPackageList().subscribe(data=>{
+      this.PackageList=data
+    });
+  }
+
+  sendPackage(item:any){
+    // this.currentPackageToSend=item;
+    // this.packageToSend.emit(this.currentPackageToSend);
+    this.service.setCurrentPackage(item);
+  }
   
 }
 
