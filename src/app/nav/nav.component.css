@@ -54,7 +54,11 @@ nav{
 
 @media screen and (max-width:1024px){
   .nav-links{
-    width: 50%;
+    width: 60%;
+  }
+
+  body{
+    overflow-x: hidden;
   }
 }
 
@@ -66,17 +70,16 @@ nav{
 
   .nav-links{
     position: absolute;
-    right: 0;
-    height: 92vh;
-    top: 8vh;
+   
     background-color: gray;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
     z-index: 10;
+    /* display: none; */
   }
 
   .nav-links li{
@@ -86,6 +89,20 @@ nav{
   .burger{
     display: block;
   }
+
+  .sizeHide {
+    width:0px;
+    height:0px;
+    margin:0;
+  }
+
+  .sizeShow {
+    right: 0;
+    height: 92vh;
+    top: 8vh;
+    width: 50%;
+  }
+
 }
 
 
@@ -114,3 +131,5 @@ nav{
 .toggle .line3{
   transform: rotate(45deg) translate(-5px,-6px);
 }
+
+

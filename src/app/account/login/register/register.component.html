@@ -1,0 +1,22 @@
+
+<div class="form-froup row">
+
+    <label class="col-sm-2 col-form-label">User Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="UserName" placeholder="Enter User Name">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Photo File Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="PhotoFileName" placeholder="Enter Photo File Name">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="Password" placeholder="Enter Password">
+    </div>
+</div>
+
+<button class="btn btn-primary mt-3" (click)="addUser()">
+    Zarejestruj
+</button>

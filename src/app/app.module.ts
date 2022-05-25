@@ -44,6 +44,10 @@ import { AddEditPackageComponent } from './admin-dashboard/package-panel/add-edi
 import { FeedbackPanelComponent } from './admin-dashboard/feedback-panel/feedback-panel.component';
 import { ShowFeedbackComponent } from './admin-dashboard/feedback-panel/show-feedback/show-feedback.component';
 import { AddEditFeedbackComponent } from './admin-dashboard/feedback-panel/add-edit-feedback/add-edit-feedback.component';
+import { LoginComponent } from './account/login/login.component';
+import { RegisterComponent } from './account/login/register/register.component';
+import { LoginFormComponent } from './account/login/login-form/login-form.component';
+import { AccountComponent } from './account/account.component';
 
 
 
@@ -73,7 +77,11 @@ import { AddEditFeedbackComponent } from './admin-dashboard/feedback-panel/add-e
     AddEditPackageComponent,
     FeedbackPanelComponent,
     ShowFeedbackComponent,
-    AddEditFeedbackComponent
+    AddEditFeedbackComponent,
+    LoginComponent,
+    RegisterComponent,
+    LoginFormComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

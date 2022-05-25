@@ -52,8 +52,8 @@
 .description p {
     text-align: left;
     font-size: 1.2rem;
-    margin:0 5%;
-    padding: 1% 1%;
+    margin:1% 4%;
+    padding: 2% 2%;
     border:rgb(71, 68, 68) solid 4px;
     border-radius: 5%;
 }
@@ -110,4 +110,13 @@ h2, h3 {
    .card{
      width: 90%
    }
+
+   .description p {
+    text-align: left;
+    font-size: 1.2rem;
+    margin:2% 2%;
+    padding: 3% 3%;
+    border:rgb(71, 68, 68) solid 4px;
+    border-radius: 5%;
+}
  }

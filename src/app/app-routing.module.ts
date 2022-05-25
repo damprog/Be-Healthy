@@ -11,6 +11,10 @@ import { UserComponent } from './admin-dashboard/user/user.component';
 import { PackagePanelComponent } from './admin-dashboard/package-panel/package-panel.component';
 import { RecipePanelComponent } from './admin-dashboard/recipe-panel/recipe-panel.component';
 import { FeedbackPanelComponent } from './admin-dashboard/feedback-panel/feedback-panel.component';
+import { AccountComponent } from './account/account.component';
+import { RegisterComponent } from './account/login/register/register.component';
+import { LoginComponent } from './account/login/login.component';
+import { LoginFormComponent } from './account/login/login-form/login-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main-page', pathMatch: 'full' },
@@ -23,7 +27,12 @@ const routes: Routes = [
   { path: 'user-panel', component: UserComponent},
   { path: 'package-panel', component: PackagePanelComponent},
   { path: 'recipe-panel', component: RecipePanelComponent},
-  { path: 'feedback-panel', component: FeedbackPanelComponent}
+  { path: 'feedback-panel', component: FeedbackPanelComponent},
+  { path: 'account', component: AccountComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'login-form', component: LoginFormComponent},
+  { path: 'register', component: RegisterComponent},
+
 ];
 
 @NgModule({
