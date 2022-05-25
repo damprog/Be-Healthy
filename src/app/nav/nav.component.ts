@@ -19,8 +19,7 @@ export class NavComponent implements OnInit {
    navSlide();
   }
 
-  onClick(): void {
-  }
+
 
 
 }

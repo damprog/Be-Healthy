@@ -7,8 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class SharedService {
 
-  readonly APIUrl = "http://127.0.0.1:8000";
-  readonly PhotoUrl = "http://127.0.0.1:8000/media/";
+  
+  readonly APIUrl = "https://polar-island-77389.herokuapp.com";
+  readonly PhotoUrl = "https://polar-island-77389.herokuapp.com/media/";
+
+  // readonly APIUrl = "http://127.0.0.1:8000";
+  // readonly PhotoUrl = "http://127.0.0.1:8000/media/";
 
   currentPackage:any;
   currentUserId:any=1;

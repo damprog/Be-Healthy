@@ -127,3 +127,12 @@ p {
     margin-right: 6px;
   }
 
+  .mbSize img{
+    width: 70%;
+  }
+
+  /* Stylizacja dla wersji mobilnej */
+
+  @media screen and (max-width:1024px){
+    
+  }

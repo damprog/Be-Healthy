@@ -106,3 +106,8 @@ h2, h3 {
     cursor: auto;
   }
 
+ @media screen and (max-width: 600px){
+   .card{
+     width: 90%
+   }
+ }
