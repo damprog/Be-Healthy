@@ -15,9 +15,10 @@ export class LoginComponent implements OnInit {
   UserName:any;
   ActivateLoginFormComp:any=false;
   ActivateRegisterComp:any=false;
+  loggedIn:any=false;
 
   ngOnInit(): void {
-    this.refreshFeedbackList();
+    this.refreshData();
   }
 
   toRegisterFrom(){
@@ -30,6 +31,12 @@ export class LoginComponent implements OnInit {
     this.ModalTitle = "Logowanie";
   }
 
+  logoutClick(){
+    this.servis.logout();
+    this.refreshData();
+    alert("Wylogowano!");
+  }
+
   registerClick(){
     this.ActivateRegisterComp = true;
     this.ModalTitle = "Rejestracja";
@@ -39,17 +46,17 @@ export class LoginComponent implements OnInit {
     this.ActivateLoginFormComp=false;
     this.ActivateRegisterComp=false;
 
-    this.refreshFeedbackList();
+    this.refreshData();
   }
 
-  refreshFeedbackList(){
+  refreshData(){
       this.User=this.servis.User;
       if(!this.User){
         this.UserName="użytkowniku";
       }else {
         this.UserName = this.User.UserName
       }
-
+      this.loggedIn=this.servis.loggedIn;
   }
 
 }

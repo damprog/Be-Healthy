@@ -14,8 +14,21 @@ export class UserService {
   readonly PhotoUrl = "https://polar-island-77389.herokuapp.com/media/";
 
   userName:any = "użytkowniku";
-
+  loggedIn:any = false;
   User:any;
+
+  logout(){
+    this.User={
+      UserId:0,
+      UserName:"",
+      Admin:false,
+      PhotoFileName:"",
+      Package:1,
+      Password:""
+  }
+  this.loggedIn=false;
+}
+
 
   // Users
   getUserList():Observable<any[]>{

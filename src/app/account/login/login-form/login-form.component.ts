@@ -11,21 +11,28 @@ export class LoginFormComponent implements OnInit {
   constructor(private service:UserService) { }
 
   ngOnInit(): void {
+
   }
 
   login:any;
   password:any;
   Users:any=[];
   
+  
   checkLogin(){
     this.service.getUserList().subscribe(data=>{
-      this.Users=data
+      this.Users=data;
     });
-
     this.Users.forEach(x => {
-      if(this.login == x.userName && this.password == x.password){
+      console.log(x.UserName);
+      if(this.login == x.UserName && this.password == x.Password){
         this.service.User = x;
-        this.service.userName = x.userName;
+        this.service.userName = x.UserName;
+        this.service.loggedIn = true;
+        alert("Zalogowano jako: " + this.service.userName);
+      }
+      if(!this.service.loggedIn){
+        alert("Logowanie nie powiodło się");
       }
     });
   }
